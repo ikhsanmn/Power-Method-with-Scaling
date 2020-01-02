@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tester</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.2/math.js"></script>
+</head>
+<body>
+<input type="number" id="iterasi">
+<button onclick="execute()">eksekusi</button><br><br>
+<input type="file" id="matrixA">
+<script > 
+function execute(){
+function Array2Dimensi(x,y)
+{
+    var array2D = new Array(y);
+    for(var i = 0; i < array2D.length; i++)
+    {
+        array2D[i] = new Array(x);
+    }
+    return array2D;
+}
+//matrix A
+var myNewArray = Array2Dimensi(2,2);
+myNewArray[0][0] = 2;
+myNewArray[0][1] = 1;
+myNewArray[1][0] = 4;
+myNewArray[1][1] = 0;
+console.log(myNewArray);
+//a0
+var myNewArray2 = Array2Dimensi(1,2);
+myNewArray2[0][0]=2;
+myNewArray2[1][0]=2;
+console.log(myNewArray2);
+var ite=document.getElementById('iterasi').value,j,k=1; //pangkat
+var iterasi=parseFloat(ite);
+var ak=[];
+var a0=myNewArray2;
+var array1=[];
+var x=10,i=1;
+console.log(iterasi);
+	ak=math.multiply(myNewArray,a0);
+	maks = math.max(ak);
+	ak = math.multiply((1/maks),ak);
+	console.log("des "+ak);
+	if(iterasi>=1){
+	while (i<=iterasi) {
+		ak=math.multiply(myNewArray,ak);
+		ak = math.multiply((1/maks),ak);
+		i++
+	}
+	}else{
+		window.alert("anda salah memasukan nilai");
+	}	
+	console.log("a0="+a0);
+	console.log("a1="+ak);
+}
+
+
+</script>          
+</body>
+</html>
